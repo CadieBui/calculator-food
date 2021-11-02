@@ -1,37 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz 7</title>
     <style>
-        table,tr,th,td{
+        .item {
+            background-color: burlywood;
             border: 1px solid black;
-            text-align: left;
-            border-collapse: collapse;
+            padding: 5px;
+            display: inline-block;
+        }
+
+        .p2 {
+            position: absolute;
+            float: right;
+            display: contents;
 
         }
-        th,td{
-            padding: 5px;
+
+        .p1 {
+            display: table-header-group;
+            width: 500px;
+            padding: 2px;
         }
-      
+
+
+
+        .overflow {
+            border: 5px solid rgb(115, 180, 115);
+            overflow: auto;
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+        }
     </style>
 </head>
-<body>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Student ID</th>
-        </tr>
-        <tr>
-            <td>裴氏瓊如</td>
-            <td>1082053</td>
-        </tr>
 
-    </table>
-    <br>
-    <iframe src="https://www.yzu.edu.tw/" frameborder="0" style="width: 500px; height: 500px;"></iframe>
+<body>
+    <div style="display: flex;padding: 40px;box-shadow: 5px 5px 10px grey;">
+        <div class="p1">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
+                adipisicing
+                elit. Iure aperiam pariatur ipsum corporis optio dicta deleniti rem ad eos? Minus nihil perferendis id
+                ipsam
+                vel
+                voluptatem inventore magni deserunt earum! <span class="item">Love</span> Maiores consequatur doloribus
+                obcaecati tempore explicabo incidunt fuga eaque soluta, asperiores atque accusantium ut <span
+                    class="item">Love</span> nostrum velit veritatis neque dolores nihil molestias<span
+                    class="item">Love</span>
+                aspernatur! </p>
+        </div>
+        <div class="p2">
+            <p class="overflow">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet
+                consectetur adipisicing
+                elit. Molestias magnam earum, autem ullam veniam ad dolore placeat qui deleniti eveniet! Officiis dicta
+                reprehenderit, laudantium sunt ratione ducimus deserunt architecto. Dignissimos? </p>
+        </div>
+    </div>
+
 
 </body>
+
 </html>
