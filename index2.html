@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style2.css">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<script>
+    $(document).ready(function () {
+        var element = $(".show");
+        console.log(element.html());
+        
+        function check() {
+            if (element.html().endsWith("+") || element.html().startsWith("+")|| element.html().endsWith("-") ||element.html().startsWith("-") || element.html().endsWith("*") ||element.html().startsWith("*") ||
+                element.html().endsWith("/")||element.html().startsWith("/")) {
+                return true;
+            }
+        }
+
+       function showR(x)
+       {
+            element.empty();
+            element.append(x);
+            seperate=" ";
+            console.log(seperate);
+
+
+       }
+        $('.container').on('click', function (e) {
+            var btn = e.target || e.srcElement;
+            console.log(btn.id);
+            var result="";
+            var s="";
+            var seperate="";
+            var s1="";
+            var s2="";
+            var  str = element.html();
+
+            if (btn.id != 'btnClear' || btn.id != "btnEqual") {
+                if (btn.id == 'btnOne') {
+                    element.append("1");
+                    console.log(1);
+                    
+                }
+                if (btn.id == 'btnZero') {
+                    element.append("0");
+                    console.log(0);
+                    
+                }
+                if (btn.id == 'btnMinus') {
+                    element.append("-");
+                    s+='-';
+                }
+                if (btn.id == 'btnMultiple') {
+                    element.append("*");
+                    console.log("*");
+
+                }
+                if (btn.id == 'btnDivided') {
+                    element.append("/");
+                    console.log("/");
+                }
+                if (btn.id == 'btnPlus') {
+                    element.append("+");
+                    console.log("+");
+
+
+                }
+            }
+
+            if (btn.id == 'btnEqual' && !check()) {
+                if(str.includes("+"))
+                {
+                     s=str.split("+");
+                     seperate="+";
+                }
+                if(str.includes("-"))
+                {
+                     s=str.split("-");
+                     seperate="-";
+                }
+                if(str.includes("*"))
+                {
+                     s=str.split("*");
+                     seperate="*";
+                }
+                if(str.includes("/"))
+                {
+                     s=str.split("/");
+                     seperate="/";
+                }
+                console.log("equal");
+                console.log(seperate);
+                console.log(s[0],s[1]);
+                s1=parseInt(s[0],2);
+                s2=parseInt(s[1],2);
+                switch(seperate)
+                {
+                    case '+': result=[(s1+s2).toString(2)]; break;
+                    case '-': result=[(s1-s2).toString(2)]; break;
+                    case '*': result=[(s1*s2).toString(2)]; break;
+                    case '/': result=[(s1/s2).toString(2)]; break;
+
+                }
+                showR(result);
+
+
+
+            } else if (btn.id == 'btnEqual' && check()) {
+                console.log("wrong");
+                alert("Wrong algorithm");
+            } 
+
+
+            if (btn.id == 'btnClear') {
+                element.empty();
+                console.log("clear");
+            }
+
+
+
+
+        });
+    });
+</script>
+
+<body>
+    <div class="container" style="display: inline-grid;">
+        <div style="border: 1px solid black;padding-top: 50px ;padding-bottom: 30px;">
+            <p class="show"></p>
+        </div>
+        <div class="btn-group btn-group-lg " role="group" aria-label="First group">
+            <button type="button" id="btnZero" class="btn btn-primary">0</button>
+            <button type="button" id="btnOne" class="btn btn-primary">1</button>
+            <button type="button" id="btnClear" class="btn btn-primary">C</button>
+            <button type="button" id="btnEqual" class="btn btn-primary">=</button>
+        </div>
+        <div class="btn-group btn-group-lg " role="group" aria-label="Second group">
+            <button type="button" id="btnPlus" class="btn btn-primary">+</button>
+            <button type="button" id="btnMinus" class="btn btn-primary">-</button>
+            <button type="button" id="btnMultiple" class="btn btn-primary">*</button>
+            <button type="button" id="btnDivided" class="btn btn-primary">/</button>
+        </div>
+    </div>
+</body>
+
+</html>
